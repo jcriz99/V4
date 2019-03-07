@@ -158,16 +158,6 @@ a:hover{
 	margin-left:auto;
 	margin-right:auto;
 }
-
-img[alt="guitar2v2"]{
-	width:100%;
-	height:auto;
-	margin-left:auto;
-	margin-right:auto;
-	float:right;
-
-}
-
 	/* M5LO5 Demonstrate the use of flexboxes on a web page (CSS document where you use flexboxes; 
 	   explain their impact on the page's layout; this can be a new page or a redo of an existing page)
 
@@ -328,6 +318,10 @@ figure figcaption{
 	padding:2px 2px 2px 2px;
 }
 
+	/* M7LO11 Demonstrate how to format a form with CSS (group your form styles together in your CSS file, and document their overall impact on the form)
+
+	Added basic CSS for clarity and to position correctly within the web page
+	*/
 form{
 	position: relative;
 	top:50px;
@@ -391,8 +385,39 @@ td{
 	text-align: left;
 }
 
-#versionlist3 table{
+#versionlist3,#versionlist4 table{
 	margin-top:50px;
+}
+	
+/*   	M8LO12 Demonstrate how to format media with CSS (CSS, group your media styles together and describe their overall impact on the media feature of your page)
+		M8LO10 Demonstrate a CSS animation or transition (CSS, identify which is being done and its impact on the rendered HTML)
+
+		Added styles to match the position and roughly the same size as the image provided for the same guitar above the video.
+
+		Added quick animation of the demo video expanding within the main page of the website
+		*/
+
+@keyframes demovideo{
+	0% {width:0%;}
+	10% {width:10%;}
+	20% {width:20%;}
+	30% {width:30%;}
+	40% {width:40%;}
+	50% {width:50%;}
+	60% {width:60%;}
+	70% {width:70%;}
+	80% {width:80%;}
+	90% {width:90%;}
+	100% {width:100%;}
+}
+video{
+	width:100%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	animation-name:demovideo;
+	animation-duration:0.5s;
+	padding-top:10px;
 }
 
 /* M5LO3 Use media queries to format a page differently for phones vs. PCs. (CSS, note where these are in your CSS and describe the overall impact they have on the site)
