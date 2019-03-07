@@ -1,0 +1,487 @@
+@charset "UTF-8";
+	/*
+		 Author: Joshua Criswell
+		 Date: 2/19/19
+		 Project: Portfolio-Worthy Website [V3]
+	
+	   
+		
+	
+	/* M2LO3 💡 (2) Explain style precedence and inheritance is CSS
+	   M2LO15 🔨 (3) Apply colors using CSS
+	   M2LO5 💡 (2) Explain what contextual selectors are 
+	   M2LO14 🔨 (3) Demonstrate and explain the use of progressive enhancement in CSS
+	   M4LO2 Demonstrate the use of background images
+
+	this below statement takes precedence over body color dictated within
+	embedded style within index.html
+
+	In terms of a contextual selector, this below statement uses the body selector to apply the styles to all body elements within the webpage
+
+	In terms of progressive enchancemenet, the use of hsl here is an example of that due to the fact it is supported in most browsers available today.
+
+	Added a background image related to the website, also made it in the fixed position so it will stay in the same position regardless of where the user scrolls
+	*/
+
+body{
+	background-attachment: fixed;
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	line-height: 1;
+	background-color: hsl(11, 7%, 87%);
+	color: hsl(104, 44%, 25%);
+}
+
+
+	/* M2LO3 💡 (2) Explain style precedence and inheritance is CSS
+	   M2LO12 🔨 (3) Demonstrate how CSS can change presentation of page elements
+	   M2LO5 💡 (2) Explain what contextual selectors are 
+
+	since the paragraph and blockquote elements inherited the color style from
+	its parent the body element, the below style is stated to override the style
+	inhereted and in turn changes the text black for these 2 elements.
+
+	Also, using the p, and blockquote selector this allows us to focus on just those two elements.
+	*/
+p, blockquote{
+	color: #000;
+}
+	/* M2LO11 💡 (2) Explain the difference between pseudo-classes and pseudo-elements
+
+	using the psuedo class "hover", i change the hover state for each link in the pages be highlighted to be white
+
+	*/
+a:hover{
+	color: #fff;
+}
+
+	/* M2LO7 📖 (1) Identify common attribute selectors
+
+	using the target attribute selector to select any links that have a target of _blank, which
+	all links that have that on my webpage on it at the moment are pictures of the guitars, i can alter
+	the portioning of these images using this selector and the below statment.
+	*/
+
+[target="_blank"]{
+	margin: 5px;
+	padding: 10px;
+
+}
+
+	/* M2LO6 💡 (2) Explain the difference between CSS id's and classes
+	   M2LO13 🔨 (3) Demonstrate how CSS can change presentation of textual elements
+
+	using the class quotes im able to alter the text-aligning of both quotes within
+	the quotes class using this specific selector
+	*/
+
+.quotes{
+	text-align: center;
+}
+
+	/* M2LO11 💡 (2) Explain the difference between pseudo-classes and pseudo-elements
+
+	using the first-line element I changed the first line of each quote to have a larger font-size
+	*/
+.quotes::first-line{
+	font-size: 1.4em;
+}
+
+	/* M2LO6 💡 (2) Explain the difference between CSS id's and classes
+	   M3LO10 Demonstrate an overflow setting
+
+	Here i'm using the id tag quote1 to narrow down on the first quote featured on the index.html
+	rather than focusing on both quotes using the class selector shown above. Thus effectively only
+	applying a certain style to only the first quote
+
+	I've also attached an auto overflow to each quoteblock here, that way regardless of the amount of text review
+	has that i want to share, it will always be able to be read in the same size quote box by using the scroll bars.
+	*/
+#quote1{
+	box-shadow: 5px 5px grey;
+	position:relative;
+	background-color: hsl(11, 28%, 72%);
+	margin-left:auto;
+	margin-right:auto;
+	width:75%;
+	height:100%;
+	padding:5px;
+	top:400px;
+	overflow:auto;
+}
+
+#quote1 q, p{
+	position:relative;
+	margin:auto;
+	padding:10px;
+}
+
+#quote2 q, p{
+	position:relative;
+}
+
+#quote2{
+	box-shadow: 5px 5px grey;
+	position:relative;
+	background-color: hsl(11, 28%, 72%);
+	margin-left:auto;
+	margin-right:auto;
+	width:75%;
+	height:100%;
+	top:400px;
+	padding:5px;
+	overflow:auto;
+}
+
+#abouttheguitar h3, p{
+	padding:10px 10px 10px 10px;
+	margin-top:10px;
+	clear:both;
+	background-color: hsl(11, 28%, 79%);
+}
+
+	/* M3LO8A Demonstrate absolute positioning
+	   M4LO8 Demonstrate the use of transformations for 2D or 3D images
+
+	For the purpose of demonstration i have labeled the positioning for the first photo as absolute, this
+	causes the positioning of it to be relative to the webpage itself rather than a parent container that
+	could have relative positioning. In which case it would be absolute, but in relation to the parent containers
+	relative position.
+
+	Transformmed the scale of the Y axis of the first image to match the size of the second image better,
+	also moved it using translateY
+	*/
+#pic1 img{
+	bottom:50%;
+	height:auto;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+img[alt="guitar2v2"]{
+	width:100%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	float:right;
+
+}
+
+	/* M5LO5 Demonstrate the use of flexboxes on a web page (CSS document where you use flexboxes; 
+	   explain their impact on the page's layout; this can be a new page or a redo of an existing page)
+
+	   M5LO7 Demonstrate use of properties of flexbox containers (CSS, document what flexbox container properties you use and their impacts, for one CSS selector using them)
+
+	   M5LO6 Demonstrate use of properties of flexbox items (CSS, document what flexbox item properties you use and their impacts, for one CSS selector using them)
+
+	   In the statements below I display all images within the gallery inside their own divs which are also
+	   stored in a main div that i display as a flexbox. This allows the entire row of pictures in a flexbox to scale
+	   correctly with the resolution
+
+	   By appling the align-items: flex-end, I am able to have all the images within the flexbox container baseline at the bottom of each pictures so they are all level.
+
+	   By using order with each item within the flexbox I'm able to the sort the pictures in anyway I want, for this instance i sorted the pictures by smallest to largest from
+	   left to right
+	   */
+#galleryfirst{
+	display:flex;
+	align-items: flex-end;
+}
+
+#image1{order:2;}
+#image2{order:3;}
+#image3{order:1;}
+#image4{order:4;}
+
+#image5{order:4;}
+#image6{order:3;}
+#image7{order:2;}
+#image8{order:1;}
+
+#gallerysecond{
+	display:flex;
+	align-items: flex-end;
+}
+
+#galleryfirst img{
+	width:100%;
+	max-height: 500px;
+	max-width: 100%;
+}
+
+#gallerysecond img{
+	width:100%;
+	max-height: 500px;
+	max-width: 100%;
+}
+
+footer{
+	margin-top:50px;
+	padding:10px 10px 10px 10px;
+	background-color: hsl(11, 28%, 79%);
+}
+
+figure{
+	margin: 20px auto 0px;
+	width:80%;
+}
+
+figure img{
+	display:block;
+}
+
+	/* M4LO5(2/2) Demonstrate the use of text and box shadowing
+
+	Added box shadow to the figure caption of the web page
+	*/
+figure figcaption{
+	box-shadow: 5px 5px grey;
+	background-color:  hsl(11, 28%, 79%);
+	text-align:center;
+	padding: 10px 0;
+
+}
+
+	/* M4LO5(1/2) Demonstrate the use of text and box shadowing
+
+	Added text shadow to the main heading of the webpage
+	*/
+.top h1{
+	text-shadow:0px -1px white;
+	text-align:center;
+	font-size:3.5em;
+}
+
+	/* M3LO2 Demonstrate floating elements
+	   M3LO8B Demonstrate relative positioning
+	   M3LO10 Demonstrate -prefix- style browser extensions use in CSS
+	   M4LO3 Demonstrate the use of rounded corners for borders
+	   M4LO4 Demonstrate the use of gradients
+	   M4LO6 Demonstrate the use of opacity/transparency for images
+
+	For my main navbar I wanted to have a horizontal style, so in order to do that, I had each list item float left
+	so the list would appear on one "row"
+
+	I also used relative positioning in order to position the nav bar 50 pixels from the top of the navbar to keep it closer
+	to the center of the page rather than the nav bar being stuck to the top of the page.
+
+	Added a linear gradient using the browser extension to have a fade out from the base color of the webpage to white
+
+	Added a rounded border for the nav bar LI for stylistic purposes
+
+	Used -webkit to had a linear gradient to the navbar
+
+	Instead of adding opacity changes to an *image* i added it the nav list here for each item, so they apear to light up
+	when hovered
+	*/
+#mainnav li{
+	background: -webkit-linear-gradient(white, hsl(137, 18%, 50%));
+	position:relative;
+	text-align:center;
+	font-size:1.5em;
+	width:355%;
+}
+
+#mainnav li:hover{
+	opacity:1.0;
+}
+
+#mainnav ul{
+	width:100%;
+}
+
+#mainnav li a{
+	display:block;
+}
+
+#versionlist h1{
+	line-height:2em;
+}
+
+#versionlist{
+	color:white;
+}
+
+#secondheader h1{
+	text-shadow:0px -1px white;
+	padding:20px 0 25px 0;
+	border-top: 30px solid hsl(137, 18%, 50%);
+	text-align:center;
+	font-size:3em;
+}
+
+	/* M3LO9 Demonstrate fixed, static, or inherited positioning
+
+	The fixed positioning on this element allows it to follow the user at the same spot in the window regardless of where
+	they've scrolled. My reasoning for attaching it to this element is to keep the "go to top" option at the bottom of the page
+	regardless where the user is at.
+	*/
+#sticky{
+	position:fixed;
+	bottom:5px;
+	right:48%;
+	background-color:hsl(137, 18%, 50%);
+	color:black;
+	border:2px black solid;
+	border-radius: 5px;
+	padding:2px 2px 2px 2px;
+}
+
+form{
+	position: relative;
+	top:50px;
+	color:white;
+	padding:20px 20px 20px 20px;
+	margin: 50px 50px 50px 50px;
+}
+
+ /* M5LO4 Use CSS for pull down menus (CSS)
+
+ 	Changed the main nav bar to be a drop down menu with all of the same options
+    */
+
+.dropdown{
+	position: relative;
+	display: inline-block;
+}
+
+.dropbutton{
+	background-color: hsl(137, 18%, 50%);
+	width:500%;
+	height:30px;
+	font-weight:bold;
+	text-shadow:1px 0px white;
+	margin:auto;
+}
+
+.dropdown-options{
+	display:none;
+	position:absolute;
+	min-width:20%;
+}
+
+.dropdown:hover .dropdown-options{
+	display:block;
+}
+
+.dropdown-options:hover{
+	display:block;
+}
+
+	/*M6LO7 Demonstrate how to format a table with CSS (CSS, group your table styles together and note the overall impact they have on the HTML)
+
+	  Added the same background color as the nav bar to the tables to match themes, also allowed each table to take 80% of each of their 50% width allottment
+	  and centered them within their divs using margin:auto. Each new row of tables will have a 50px margin on top to space out the tables above them better.
+	  This is seen in the #versionslist2 statment.
+	  */
+table{
+	background: -webkit-linear-gradient(white, hsl(137, 18%, 50%));
+	color:black;
+	width:80%;
+	margin:auto;
+}
+ 
+table, th,td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td{
+	text-align: left;
+}
+
+#versionlist3 table{
+	margin-top:50px;
+}
+
+/* M5LO3 Use media queries to format a page differently for phones vs. PCs. (CSS, note where these are in your CSS and describe the overall impact they have on the site)
+	
+   Using this media query i was able to modify elements to place correctly on a smaller screen(600px or less)
+   Also using this query i was able to modify the nav list pull down to be fixed to the screen on a phone screen. Allowing the nav bar to be
+   accessed anywhere on a page. Other modifications to image height and font sizes are adding to improve visual quality.
+   */
+
+@media only screen and (max-width:600px){
+	[class*="col-"]{
+		width:100%;
+	}
+	#mainnav li{
+		width:100%;
+	}
+
+	.dropdown{
+		position:fixed;
+		z-index:1;
+	}
+
+	.dropbutton{
+		width:142%;
+	}
+
+	img{
+		min-height:100px;
+	}
+
+	#quote1 q,p{
+		font-size:75%;
+	}
+
+	#quote2 q,p{
+		font-size:75%;
+	}
+
+	#quote1{
+		top:0px;
+	}
+
+	#quote2{
+		top:0px;
+	}
+
+	#abouttheguitar{
+		font-size:200%;
+	}
+
+	footer{
+		font-size:200%;
+	}
+
+	#sticky{
+		display:none;
+	}
+
+	#secondheader{
+		font-size:50%;
+	}
+
+}
+
+/* M3LO6 Demonstrate formatting a grid
+	   M3LO3 Demonstrate a clearing floats
+
+	   All below css is formatting for a grid for all of my pages that use divs, ensures that each section floats properly
+	   and are the correct widths in align with the style i want to achieve.
+
+	   Directly below I've stated a clear for both sides of each row, ensuring that a row cannot float or overlap
+	   with another row, keeping the structure of the website clean and not overlapping my divs.
+	*/
+div.row{
+	clear:both;
+}
+
+div.row::after{
+	clear:both;
+	content:"";
+	display:table;
+}
+
+div[class^="col-"]{
+	float:left;
+}
+
+div.col-1-1 {width:100%;}
+div.col-1-4 {width:25%;}
+div.col-1-2 {width:50%;}
+div.col-2-3 {width:66.66%;}
+div.col-1-3 {width:33.33%;}	

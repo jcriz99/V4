@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+  /*    Author: Joshua Criswell
+	 	Date: 2/19/19
+		Project: Portfolio-Worthy Website [V3]
+	    reset.css is used to reset the current style of the webpage, clearing any pre-existing styles implemented by the web browser.
+
+   M3LO1 Demonstrate the use of a CSS reset style sheet
+
+	All below styles are classified as my reset style sheet for my website so the websites base design is more consistent
+	across many browsers.
+	*/
+
+article, aside, figcaption, figure,
+footer, header, main, nav, section{
+	display:block;
+}
+
+address, article, aside, blockquote, body, cite,
+div, dl, dt, dd, em, figcaption, figure, footer,
+h1, h2, h3, h4, h5, h6, header, html, img,
+li, main, nav, ol, p, section, span, ul{
+	background:transparent;
+	font-size:100%;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+}
+
+nav ul{
+	list-style: none;
+	list-style-image: none;
+}
+
+nav a{
+	text-decoration: none;
+}
